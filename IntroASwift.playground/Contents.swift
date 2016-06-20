@@ -199,7 +199,23 @@ let cc=applierInv(2,4){
     return $0 * 2+$1*3
 }
 
+//:  ## Optionals
 
+//empaqueto algo dentro de un opcional
+var maybeAString: String? = "I'm boxed!"
+var maybeInt: Int?
+print(maybeAString)
+print(maybeInt)
+
+// Desempaquetado seguro
+
+if let certainlyAString = maybeAString{
+    print("Ya te decia yo que era una cadena")
+    print(certainlyAString)
+}
+
+// desempaquetado por cojones
+//var allaVoy = maybeInt!
 
 
 
