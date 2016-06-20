@@ -59,7 +59,28 @@ for i in 1..<5{
     print(i)
 }
 
+//: ## Funciones
 
+// Esto es lo recomendado
+func h(perico a:Int, deLosPalotes b:Int) -> Int{
+    return (a + b) * a
+}
+
+h(perico:3,deLosPalotes:4)
+
+func f(a:Int, _ b:Int) -> Int{
+    return (a + b)
+}
+
+f(3,4)
+
+// Ejemplo real, suma dos numeros y multiplica por un tercero
+
+func sum(a:Int, _ b:Int, thenMultiplyBy c:Int) -> Int{
+    return (a+b)*c
+}
+
+sum(3,4,thenMultiplyBy: 5)
 
 
 
