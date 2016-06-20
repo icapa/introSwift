@@ -23,3 +23,49 @@ let ans = String(answer)
 typealias Integer = Int
 
 let a1: Integer = 45
+
+//: ## Colecciones
+var swift = "Nuevo lenguaje de Apple"
+swift = swift + "!"
+
+var words = ["uno","dos","tres","cuatro"]
+words[0]
+let numberNames = [1: "uno",2: "dos"]
+numberNames[1]
+
+//: ## Iterar
+
+var total = ""
+for element in [1,2,3,4,5,6,7]{
+    total = "\(total) \(element)"
+}
+print (total)
+
+for (key,value) in numberNames{
+    print("\(key) -- \(value)")
+}
+
+// Tupla
+let pair = (1,"one")
+pair.0
+pair.1
+
+// Range
+for i in 1...5 {
+    print(i)
+}
+
+for i in 1..<5{
+    print(i)
+}
+
+
+
+
+
+
+
+
+
+
+
