@@ -155,8 +155,26 @@ for f in funcs{
     f(33)
 }
 
+//: ## Closure Syntax (representacion literal de funciones)
 
+func g(a:Int)->Int{
+    return a+42;
+}
+// Literal
+let gg = {(a:Int) -> Int in
+    return a+42
+}
 
+g(1)
+gg(1)
+
+// Sintaxis simplificada de clausuras
+let closures = [g,
+                {(a:Int)->Int in return a - 42},
+                {a in return a+45},
+                {a in a/42},
+                {$0 * 42}
+]
 
 
 
