@@ -109,8 +109,51 @@ let r = namesOfNumbers(3)
 let (_,en,es)=namesOfNumbers(1)
 print(en,es)
 
+//: ## Funciones de alto nivel
 
+typealias IntToIntFunc = (Int)->Int
 
+var z : IntToIntFunc
+
+// Funciones como parámetros
+func apply(f: IntToIntFunc, n:Int)->Int{
+    return f(n)
+}
+
+func doubler(a:Int)->Int{
+    return a * 2
+}
+
+func add42(a:Int) -> Int{
+    return a+42
+}
+
+apply(doubler,n:4)
+apply(add42,n:3)
+
+// Funciones como valores de retorno
+
+func compose(f: IntToIntFunc,
+             _ h:IntToIntFunc) -> IntToIntFunc{
+    // funciones dentro de funciones
+    func comp(a:Int) -> Int{
+        return f(h(a))
+    }
+    return comp
+}
+
+compose(add42,doubler)(8)
+
+let comp = compose(add42,doubler)
+
+comp(8)
+
+// Funciones del mismo tipo en un array
+let funcs = [add42,doubler,comp]
+
+for f in funcs{
+    f(33)
+}
 
 
 
