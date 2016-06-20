@@ -176,6 +176,28 @@ let closures = [g,
                 {$0 * 42}
 ]
 
+//: Operadores
+
+typealias BinaryFunc = (Int,Int)->Int
+let applier = {(f: BinaryFunc, m: Int, n:Int) -> Int
+                    in
+    return f(m,n)
+}
+
+applier(*,2,4)
+
+//Trailing closure
+
+func applierInv(m:Int,_ n:Int,f:BinaryFunc) ->Int{
+    return applier(f,m,n)
+}
+
+let c = applierInv (2, 4, f: {$0 * 2+$1*3})
+
+// 100% equivalente a :
+let cc=applierInv(2,4){
+    return $0 * 2+$1*3
+}
 
 
 
