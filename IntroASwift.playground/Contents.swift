@@ -82,6 +82,38 @@ func sum(a:Int, _ b:Int, thenMultiplyBy c:Int) -> Int{
 
 sum(3,4,thenMultiplyBy: 5)
 
+// Default values
+func addSuffixTo(a:String, suffix:String = "ingly") ->String{
+    return a + suffix
+}
+
+addSuffixTo("pepito")
+addSuffixTo("Objetive-",suffix: "C")
+
+// Return values
+func namesOfNumbers(a:Int) -> (Int,String,String){
+    var val: (Int,String,String)
+    switch a {
+    case 1:
+        val = (1,"one","uno")
+    case 2:
+        val = (2,"two","dos")
+    default:
+        val = (a, "Go check Google Translator","vete a google a buscar")
+    }
+    return val
+}
+
+let r = namesOfNumbers(3)
+
+let (_,en,es)=namesOfNumbers(1)
+print(en,es)
+
+
+
+
+
+
 
 
 
