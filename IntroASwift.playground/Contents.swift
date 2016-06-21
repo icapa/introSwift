@@ -312,11 +312,31 @@ class Sith : Jedi{
         self.init(name:name, midichlorians: 1000,
                   lightSabre: LightSabre(color: .Red, isDoubleBladed: true),
                   master:nil,padawan: nil)
+    }
 
 }
 
+//: Extensions
+typealias Euro = Double
+extension Euro{
+    var €: Double{return self}
+    var $: Double{return self*0.7}
+}
 
+var totalEuros = 123.€ + 45.09.$
 
+typealias Task = () -> ()
+extension Int{
+    func times(task: Task){
+        for _ in 1...self{
+            task()
+        }
+    }
+}
+
+4.times({
+    print("My name is Groot")
+})
 
 
 
