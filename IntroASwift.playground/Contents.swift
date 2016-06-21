@@ -219,5 +219,111 @@ if let certainlyAString = maybeAString{
 
 
 
+//: Aggregate types: enums, structs, classes, tuples
+enum LightSabreColor{
+    case Blue, Red, Green, Purple
+}
+
+struct LightSabre{
+    
+    // static or "class" property (stored)
+    static let quote = "An elegant weapon for a more civilized time"
+    
+    // Instance properties
+    var color: LightSabreColor = .Blue {
+        // Property observer
+        willSet(newValue){
+            print("About to change color to \(newValue)")
+        }
+    }
+    
+    var isDoubleBladed = false
+}
+
+class Jedi : CustomStringConvertible {
+    // Si puedes dar valor por defecto, hazlo
+    // Si no, crea un init
+    // solo usa opcionales cuando sea indispensable
+    // Stored properties
+    var lightSabre = LightSabre()
+    
+    var name : String
+    var midichlorians =  1_000
+    
+    var master  : Jedi?
+    var padawan : Jedi?
+    
+    var description: String{
+        get{
+            return "Prueba"
+        }
+    }
+    
+    //computed property
+    var fullName: String{
+        get{
+            var full = name
+            if let m = master{
+                full = full + " padawan of \(m.name)"
+            }
+            return full
+        }
+    }
+    
+    // Inicializadores
+    init(name: String, midichlorians : Int, lightSabre: LightSabre,
+         master: Jedi?, padawan: Jedi?){
+        
+        // Usando patern matching
+        (self.name,self.midichlorians,self.lightSabre)=(name,midichlorians,lightSabre)
+        self.master = master
+        self.padawan = padawan;
+    }
+    
+    convenience init(name: String){
+        self.init(name:name, midichlorians: 1000,
+                  lightSabre: LightSabre(), master:nil,padawan: nil)
+    }
+    
+    convenience init(masterName name: String){
+        self.init(name: name,midichlorians: 10_000,
+                  lightSabre: LightSabre(color: .Green,isDoubleBladed:false),
+                  master: nil, padawan: nil)
+    }
+    
+    // Regular method
+    func totalMidichlorians() -> Int{
+        var total = midichlorians
+        
+        //Optional chaining
+        if let masterMidichlorians = master?.midichlorians{
+            total = total + masterMidichlorians
+        }
+        return total
+    }
+}
+
+let luke = Jedi(masterName: "Luke Skywalker")
+
+// Inheritance
+
+class Sith : Jedi{
+    convenience init(name: String){
+        self.init(name:name, midichlorians: 1000,
+                  lightSabre: LightSabre(color: .Red, isDoubleBladed: true),
+                  master:nil,padawan: nil)
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
