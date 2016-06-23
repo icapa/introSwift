@@ -339,9 +339,26 @@ extension Int{
 })
 
 
+//: Nil y la tupla
 
+// 2-tuples
+(2,"hola")
 
+// tuplas 3-tupla dentro de tuplas
+(45,("Hola", NSDate()),45)
 
+//¿hay tupla con un elemento? Es el elemento
+(2) == 2
+
+//¿Cual es la tupla vacia?
+// Representa a nil
+func p(){
+    print("Hola mundo")
+}
+
+func pp()->(){
+    print("Hola Mundo")
+}
 
 
 
