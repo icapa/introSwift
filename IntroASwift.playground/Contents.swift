@@ -366,7 +366,32 @@ func pp()->(){
 //: Averiguar tipo en tiempo de ejecucion
 43.9.dynamicType
 
+//: ## Gestión de errores
+// Palabrejas: try,throw, catch, do
 
+// Toda función que pueda generar un error, está marcada con throw
+// Toda función que lanza un error, se llama con try
 
+let err : ErrorType
 
+func inverse(n: Double) throws -> Double{
+   guard n != 0 else {
+        throw NSError(domain: "Divide by Zero", code: 42, userInfo: nil)
+    }
+    
+    return 1/n
+}
+
+do{
+    let inv = try inverse(4)
+    print("\(inv)")
+    
+}catch{
+    print("La cagamos")
+}
+// Variaciones deltro del try
+// Que lo haga por cojones
+//try! inverse(0)
+// opcional
+try? inverse(20)
 
