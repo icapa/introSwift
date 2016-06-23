@@ -352,6 +352,9 @@ extension Int{
 
 //¿Cual es la tupla vacia?
 // Representa a nil
+//() también se representa como void
+// Void -> No hay valor
+// nil -> Existe el valor pero no lo tengo o es incorrecto
 func p(){
     print("Hola mundo")
 }
@@ -359,6 +362,9 @@ func p(){
 func pp()->(){
     print("Hola Mundo")
 }
+
+//: Averiguar tipo en tiempo de ejecucion
+43.9.dynamicType
 
 
 
