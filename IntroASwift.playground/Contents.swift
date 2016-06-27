@@ -412,5 +412,12 @@ class Thing: NSObject{
 
 let t = Thing(urlString: "no es una url")
 
+//: ### Casts en Swift
+class Thong : Thing{}
+
+let tt = Thing(urlString: "http://www.google.es")
+
+let ttt = tt as? Thong // por las buenas
+//let tttt = tt as! Thong // por las bravas..mejor no usarlo
 
 
