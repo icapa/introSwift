@@ -395,3 +395,22 @@ do{
 // opcional
 try? inverse(20)
 
+//: ### Init fallable
+class Thing: NSObject{
+    let url: NSURL
+    init?(urlString: String){
+        let theUrl : NSURL? = NSURL(string: urlString)
+        if theUrl == nil{
+            // ha fallado y hay que devolver nil
+            return nil
+        }else{
+            url = theUrl!
+        }
+        super.init()
+    }
+}
+
+let t = Thing(urlString: "no es una url")
+
+
+
